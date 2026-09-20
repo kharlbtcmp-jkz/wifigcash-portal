@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>Konek WiFi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="card" id="card">
+
+    <header class="card-head">
+      <p class="wordmark">Konek<span>WiFi</span></p>
+      <p class="clock" id="clock">--:--</p>
+    </header>
+
+    <p class="greeting" id="greeting">Hey there.</p>
+    <p class="subgreeting" id="subgreeting">Pay to get connected.</p>
+
+    <!--
+      OMADA EXTERNAL PORTAL
+      Omada's controller redirects the customer's device here with details
+      already attached as URL parameters (clientMac, gatewayMac or apMac,
+      ssidName, radioId, site, vid, redirectUrl). We read them with
+      script.js and send them to our backend, which uses them to authorize
+      this exact device once payment is confirmed.
+      No voucher code entry needed -- this replaces that step entirely.
+    -->
+
+    <div id="status-waiting">
+      <p class="plan-label">Choose a plan to get online:</p>
+      <div class="plan-list" id="plan-list">
+        <!-- Filled in by script.js from the PLANS list, kept in sync with the backend -->
+      </div>
+    </div>
+
+    <div id="status-connecting" style="display:none;">
+      <p class="status-text">Confirming your payment&hellip;</p>
+      <div class="spinner"></div>
+    </div>
+
+    <div id="status-connected" style="display:none;">
+      <p class="status-text status-success">You're connected!</p>
+      <a class="btn btn-primary btn-block" id="continue-link" href="#">Continue browsing</a>
+    </div>
+
+    <div id="status-error" style="display:none;">
+      <p class="status-text status-error-text">Something went wrong with the payment.</p>
+      <button type="button" class="btn btn-ghost btn-block" id="retry-btn">Try again</button>
+    </div>
+
+    <div class="secondary-actions">
+      <button type="button" class="btn btn-ghost" id="open-rates">View rates</button>
+    </div>
+
+    <p class="footnote">Having trouble? Ask the shop attendant for help.</p>
+  </div>
+
+  <!-- Rates modal -->
+  <div class="modal" id="rates-modal">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel">
+      <button type="button" class="modal-close" data-close aria-label="Close">&times;</button>
+      <h2 class="modal-title">Rates</h2>
+      <table class="rates-table">
+        <thead><tr><th>Plan</th><th>Price</th></tr></thead>
+        <tbody id="rates-table-body">
+          <!-- Filled in by script.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Backend URL: replace with your deployed Render URL once live -->
+  <script>window.BACKEND_URL = "https://your-app.onrender.com";</script>
+  <script src="script.js"></script>
+</body>
+</html>
