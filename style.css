@@ -1,0 +1,173 @@
+:root{
+  --navy-deep: #150524;
+  --navy: #1E0B3B;
+  --purple-card: #8B7BD8;
+  --purple-card-2: #9385DE;
+  --pill-dark: #2A1650;
+  --pill-dark-hover: #37205f;
+  --white: #FFFFFF;
+  --error: #FFD3CE;
+}
+
+*{ box-sizing: border-box; }
+html,body{ margin: 0; padding: 0; min-height: 100%; }
+
+body{
+  font-family: 'Poppins', sans-serif;
+  color: var(--white);
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 55%, #2b1350 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px 40px;
+}
+
+.page{
+  width: 100%;
+  max-width: 380px;
+}
+
+.brand-header{
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.brand-title{
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.brand-badge{
+  width: 84px;
+  height: 84px;
+  margin: 0 auto;
+  border-radius: 22px;
+  border: 2px solid rgba(255,255,255,0.5);
+  transform: rotate(-8deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+}
+.brand-badge-initials{
+  transform: rotate(8deg);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.card{
+  background: linear-gradient(160deg, var(--purple-card-2), var(--purple-card));
+  border-radius: 28px;
+  padding: 26px 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(10, 0, 30, 0.35);
+}
+
+.card-greeting{
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin: 0 0 18px;
+  letter-spacing: 0.3px;
+}
+
+.card-title{
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 18px;
+}
+
+.select-label{
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 6px;
+}
+
+.pill-input, .pill-select{
+  width: 100%;
+  background: var(--pill-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.pill-input::placeholder{
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+.pill-input:focus, .pill-select:focus{
+  outline: 2px solid rgba(255,255,255,0.4);
+}
+
+.pill-select{
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  padding-right: 44px;
+}
+.pill-select option{
+  background: var(--pill-dark);
+  color: var(--white);
+}
+
+.pill-btn{
+  display: inline-block;
+  background: var(--pill-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 34px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+.pill-btn:hover{ background: var(--pill-dark-hover); }
+.pill-btn:active{ transform: scale(0.97); }
+
+.status-line{
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 10px 0 16px;
+}
+.status-success{ color: #DFFAE6; }
+
+.card-error{
+  color: var(--error);
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-height: 1.2em;
+  margin: 10px 0 0;
+}
+
+.footnote{
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  margin: 10px 0 0;
+}
+
+@media (max-width: 400px){
+  .card{ padding: 22px 18px; }
+  .brand-title{ font-size: 1.35rem; }
+}

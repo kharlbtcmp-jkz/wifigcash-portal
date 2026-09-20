@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>Zerna Voucher WiFi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand-header">
+      <h1 class="brand-title">Welcome to<br />Zerna Voucher WiFi</h1>
+      <div class="brand-badge">
+        <span class="brand-badge-initials">JK</span>
+      </div>
+    </header>
+
+    <!--
+      OMADA EXTERNAL PORTAL: script.js reads clientMac/apMac/gatewayMac/
+      ssidName/radioId/site/redirectUrl from the URL Omada's controller
+      redirects to, and forwards them with every payment/redemption call.
+    -->
+
+    <!-- Voucher card (physical / pre-sold codes) -->
+    <section class="card">
+      <p class="card-greeting" id="greeting">Good day!</p>
+      <div id="voucher-idle">
+        <input
+          id="voucher-code"
+          class="pill-input"
+          type="text"
+          placeholder="Enter voucher code"
+          autocomplete="off"
+          autocapitalize="characters"
+        />
+        <button type="button" class="pill-btn" id="connect-btn">Connect</button>
+        <p class="card-error" id="voucher-error"></p>
+      </div>
+      <div id="voucher-connecting" style="display:none;">
+        <p class="status-line">Connecting&hellip;</p>
+      </div>
+      <div id="voucher-connected" style="display:none;">
+        <p class="status-line status-success">You're connected!</p>
+        <a class="pill-btn" id="voucher-continue-link" href="#">Continue browsing</a>
+      </div>
+    </section>
+
+    <!-- GCash payment card -->
+    <section class="card">
+      <h2 class="card-title">GCash Payment</h2>
+
+      <div id="pay-idle">
+        <label class="select-label" for="plan-select">Select option:</label>
+        <select id="plan-select" class="pill-select">
+          <option value="">Loading plans&hellip;</option>
+        </select>
+        <button type="button" class="pill-btn" id="proceed-btn">Proceed</button>
+        <p class="card-error" id="pay-error"></p>
+      </div>
+      <div id="pay-connecting" style="display:none;">
+        <p class="status-line" id="pay-status-text">Redirecting to GCash&hellip;</p>
+      </div>
+      <div id="pay-connected" style="display:none;">
+        <p class="status-line status-success">You're connected!</p>
+        <a class="pill-btn" id="pay-continue-link" href="#">Continue browsing</a>
+      </div>
+    </section>
+
+    <p class="footnote">Having trouble? Ask the shop attendant for help.</p>
+  </div>
+
+  <!-- Replace with your live Render backend URL -->
+  <script>window.BACKEND_URL = "https://wifigcash.onrender.com";</script>
+  <script src="script.js"></script>
+</body>
+</html>
