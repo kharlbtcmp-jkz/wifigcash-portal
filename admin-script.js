@@ -10,8 +10,8 @@ function centavosToPeso(c) {
 // ---------------------------------------------------------------------------
 document.getElementById('login-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const username = document.getElementById('kharlbtcmpADMIN').value;
-  const password = document.getElementById('sstqc9m2rjohn').value;
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
   const errorEl = document.getElementById('login-error');
   errorEl.textContent = '';
 
